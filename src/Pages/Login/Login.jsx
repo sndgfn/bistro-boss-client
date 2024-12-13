@@ -1,34 +1,52 @@
-import { useEffect, useRef, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
-
+import { useContext, useEffect, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+// import { AuthContext } from '../../providers/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../../Providers/AuthProvider';
+// import Swal from 'sweetalert2'
 
 const Login = () => {
-    const [disabled, setDisabled] = useState(true)
-    const captchaRef = useRef(null)
+    const [disabled, setDisabled] = useState(true);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { signIn } = useContext(AuthContext);
+    const from = location.state?.from?.pathname || "/";
+
     useEffect(() => {
         loadCaptchaEnginge(6);
-
     }, [])
-    const handleLogin = e => {
-        e.preventDefault();
-        const form = e.target;
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
-    }
-    const handleValidateCaptcha = () => {
-        const user_Captcha_value = captchaRef.current.value;
-        if (validateCaptcha(user_Captcha_value)) {
-            setDisabled(false);
+        console.log(email, password);
+        signIn(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+        })
 
+    }
+
+    const handleValidateCaptcha = (e) => {
+        const user_captcha_value = e.target.value;
+        if (validateCaptcha(user_captcha_value)) {
+            setDisabled(false);
         }
-        else { 
+        else {
             setDisabled(true)
         }
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <>
+            <Helmet>
+                <title>Bistro Boss | Login</title>
+            </Helmet>
+            <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col md:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -59,15 +77,14 @@ const Login = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                                {/* TODO: apply disabled for re captcha */}
-                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
+                                <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        
-                        
+                        <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
                     </div>
                 </div>
             </div>
+        </>
     );
 };
 
