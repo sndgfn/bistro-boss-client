@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.5.0",
+    "@tanstack/react-query": "^5.64.0",
     "animate.css": "^4.1.1",
+    "axios": "^1.7.9",
     "env-variable": "^0.0.6",
     "events": "^3.3.0",
     "firebase": "^11.0.2",
@@ -23,6 +25,7 @@
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.54.1",
+    "react-icons": "^5.4.0",
     "react-parallax": "^3.5.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.26.2",
