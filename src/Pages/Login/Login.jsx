@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import 'animate.css'; // Ensure animate.css is imported for animations
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+
 
 const Login = () => {
     const [disabled, setDisabled] = useState(false); // Set default to false since captcha is disabled
@@ -136,6 +138,7 @@ const Login = () => {
                                 New Here? <Link to="/signup">Create an account</Link>
                             </small>
                         </p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
