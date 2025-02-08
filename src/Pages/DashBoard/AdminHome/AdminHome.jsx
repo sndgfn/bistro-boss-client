@@ -152,6 +152,7 @@ const AdminHome = () => {
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
+                        <Legend></Legend>
                     </PieChart>
                 </div>
             </div>
