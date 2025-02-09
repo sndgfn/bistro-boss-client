@@ -4,7 +4,6 @@ import {
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Menu from '../Pages/Menu/Menu/Menu'  
-import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
@@ -19,8 +18,11 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import Order from "../pages/Order/Order/Order";
+
 
   export const router = createBrowserRouter([
+   
     {
       path: "/",
       element:<Main></Main>,
@@ -35,7 +37,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
         },
         {
           path: '/order/:category',
-          element: <PrivateRoute><Order></Order></PrivateRoute>
+          element:<Order></Order> 
         },
         {
           path: '/login',
@@ -51,7 +53,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
     },
     {
       path:"dashboard",
-      element: <DashBoard></DashBoard>,
+      element:<PrivateRoute> <DashBoard></DashBoard></PrivateRoute>,
       children:[
         {
           path: 'cart',
@@ -91,7 +93,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
         {
           path:'updateItem/:id',
           element:<AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+          loader:({params})=>fetch(`https://bistro-boss-server-nu-lilac.vercel.app/menu/${params.id}`)
         },
  
         

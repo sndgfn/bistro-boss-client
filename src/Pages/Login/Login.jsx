@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-// import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -13,12 +12,11 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { signIn } = useContext(AuthContext);
+
     const from = location.state?.from?.pathname || '/';
-
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6); // Load captcha with 6 characters
-    // }, []);
-
+    
+    console.log(location)
+ 
     const handleLogin = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -46,7 +44,10 @@ const Login = () => {
                     popup: 'animate__animated animate__fadeOutUp',
                 },
             });
-            navigate(from, { replace: true });
+            navigate(from ?? '/');
+
+            // navigate(from, { replace: true });
+
         } catch (error) {
             Swal.fire({
                 icon: 'error',
@@ -56,14 +57,8 @@ const Login = () => {
         }
     };
 
-    // const handleValidateCaptcha = (e) => {
-    //     const userCaptchaValue = e.target.value.trim();
-    //     if (validateCaptcha(userCaptchaValue)) {
-    //         setDisabled(false);
-    //     } else {
-    //         setDisabled(true);
-    //     }
-    // };
+
+
 
     return (
         <>
@@ -147,3 +142,9 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+

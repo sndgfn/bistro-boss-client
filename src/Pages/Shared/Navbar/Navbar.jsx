@@ -21,13 +21,15 @@ const Navbar = () => {
         {/* <li className="text-black">{user.email}</li> */}
         <li> <Link to='/order/salad'>Order </Link></li>
         <li> <Link to='/menu'>Menu </Link></li>
-        { 
+        {
             user && isAdmin && <li> <Link to='/dashboard/adminHome'>Dashboard </Link></li>
         }
-        { 
+        {
             user && !isAdmin && <li> <Link to='/dashboard/userHome'>Dashboard </Link></li>
         }
-        <li>
+        
+        {
+            user && !isAdmin && <li>
             <Link to="/dashboard/cart">
                 <button className="btn">
                     <FaArchive></FaArchive>
@@ -35,6 +37,15 @@ const Navbar = () => {
                 </button>
             </Link>
         </li>
+        }
+        {/* <li>
+            <Link to="/dashboard/cart">
+                <button className="btn">
+                    <FaArchive></FaArchive>
+                    <div className="badge badge-secondary">+{cart.length}</div>
+                </button>
+            </Link>
+        </li> */}
         {
             user ? <>
                 <button onClick={handleLogOut} className="btn-ghost">logout </button>

@@ -17,8 +17,10 @@ const CheckOutForm = () => {
     const [cart, refetch] = useCart();
     const navigate=useNavigate();
 
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    // const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    const totalPrice = Math.round(cart.reduce((total, item) => total + item.price, 0));
 
+    
     useEffect(() => {
         if (totalPrice > 0) {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })

@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const [cart, refetch] = useCart();
     const axiosSecure = useAxiosSecure();
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0)
-
+    // const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+    const totalPrice =  Math.round(cart.reduce((total, item) => total + item.price, 0));
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
