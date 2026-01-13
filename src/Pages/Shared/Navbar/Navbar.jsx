@@ -19,8 +19,8 @@ const Navbar = () => {
     const navOptions = <>
         <li><Link to='/'>  Home</Link> </li>
         {/* <li className="text-black">{user.email}</li> */}
-        <li> <Link to='/order/salad'>Order </Link></li>
-        <li> <Link to='/menu'>Menu </Link></li>
+        {/* <li> <Link to='/order/salad'>Order </Link></li> */}
+        {/* <li> <Link to='/menu'>Menu </Link></li> */}
         {
             user && isAdmin && <li> <Link to='/dashboard/adminHome'>Dashboard </Link></li>
         }

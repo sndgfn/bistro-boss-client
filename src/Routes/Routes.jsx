@@ -3,7 +3,7 @@ import {
   } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
-import Menu from '../Pages/Menu/Menu/Menu'  
+// import Menu from '../Pages/Menu/Menu/Menu'  
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
@@ -18,7 +18,7 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
-import Order from "../pages/Order/Order/Order";
+// import Order from "../pages/Order/Order/Order";
 
 
   export const router = createBrowserRouter([
@@ -31,14 +31,14 @@ import Order from "../pages/Order/Order/Order";
           path: '/',
           element:<Home></Home>
         },
-        {
-          path: '/menu',
-          element: <Menu></Menu> 
-        },
-        {
-          path: '/order/:category',
-          element:<Order></Order> 
-        },
+        // {
+        //   path: '/menu',
+        //   element: <Menu></Menu> 
+        // },
+        // {
+        //   path: '/order/:category',
+        //   element:<Order></Order> 
+        // },
         {
           path: '/login',
           element: <Login></Login> 

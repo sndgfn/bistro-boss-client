@@ -1,4 +1,4 @@
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+// import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import useMenu from "../../../hooks/useMenu";
 
@@ -18,10 +18,10 @@ const PopularMenu = () => {
     return (
         <div>
             <section>
-                <SectionTitle
+                {/* <SectionTitle
                 heading="From opur menu"
                 subHeading="Popular Items"
-                ></SectionTitle>
+                ></SectionTitle> */}
             </section>
             <div className="grid md:grid-cols-2 gap-4">
                 {
@@ -30,6 +30,9 @@ const PopularMenu = () => {
                     item={item}
                     ></MenuItem>)
                 }
+            </div>
+            <div>
+                
             </div>
         </div>
     );

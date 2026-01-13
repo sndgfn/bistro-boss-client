@@ -1,5 +1,5 @@
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+// import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -42,7 +42,7 @@ const ManageItems = () => {
     }
     return (
         <div>
-            <SectionTitle heading="Manage All Items" subHeading="Hurry up"></SectionTitle>
+            {/* <SectionTitle heading="Manage All Items" subHeading="Hurry up"></SectionTitle> */}
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">

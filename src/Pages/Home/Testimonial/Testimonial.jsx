@@ -1,4 +1,4 @@
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+// import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -19,10 +19,10 @@ const Testimonial = () => {
     }, [])
     return (
         <section className="my-20">
-            <SectionTitle
+            {/* <SectionTitle
                 heading='Testimonials'
                 subHeading='whats our client say'
-            ></SectionTitle>
+            ></SectionTitle> */}
             <>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 
